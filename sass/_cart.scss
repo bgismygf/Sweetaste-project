@@ -1,0 +1,313 @@
+@mixin clearfix {
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin pad {
+    @media(max-width: 768px) {
+        @content
+    }
+}
+
+@mixin iphone {
+    @media(max-width: 568px) {
+        @content
+    }
+}
+
+@mixin iphone5 {
+    @media(max-width: 320px) {
+        @content
+    }
+}
+
+@mixin ip-ip5 {
+    @media screen and (min-width: 321px) and (max-width: 567px) {
+        @content
+    }
+}
+
+$font-family:"Helvetica Neue",
+Helvetica,
+"segoe ui",
+"microsoft jhenghei",
+"microsoft mhei",
+stheititc,
+sans-serif;
+$font-dark-green:#3F5D45;
+$font-light-green:rgba(63, 93, 69, 0.5);
+$a-color:rgba(63, 93, 69, 0.91);
+$font-color-p:#8DA291;
+$light:#EAF0ED;
+$light-dark:#E6E8E7;
+$btn-yellow:#FFE180;
+$btn-yellow-dark:#FFE150;
+
+.cart-all {
+    margin-bottom: 40px;
+    @include clearfix;
+
+    @include iphone {
+        margin-bottom: 0px;
+    }
+
+    h3 {
+        color: $font-dark-green;
+        width: 100%;
+        height: 65px;
+        background: $light;
+        text-align: center;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 65px;
+        margin-bottom: 32px;
+    }
+
+    .cart {
+        color: $font-dark-green;
+        font-family: $font-family;
+        float: left;
+        width: 62%;
+        @include clearfix;
+
+        @include iphone {
+            width: 100%;
+            float: none;
+        }
+
+        .product-after {
+            padding-top: 20px;
+        }
+
+        .cart-product {
+            width: 100%;
+            border-bottom: 1px solid $font-light-green;
+            float: left;
+            padding-bottom: 20px;
+
+            @include iphone {
+                width: 92%;
+                float: none;
+                margin: 0 auto;
+                padding-bottom: 8px;
+            }
+
+            .product-after {
+                padding-top: 20px;
+            }
+
+            .cart-product-img {
+                width: 17.7%;
+                float: left;
+
+                @include iphone {
+                    width: 54.1%;
+
+                }
+
+                @include iphone5 {
+                    width: 47.1%;
+                }
+
+                .img1,
+                .img2,
+                .img3 {
+                    max-width: 110px;
+                    height: 110px;
+                    background-size: cover;
+                    background-position: center center;
+
+                    @include iphone {
+                        max-width: 157px;
+                        height: 107px;
+                    }
+                }
+
+                .img1 {
+                    background-image: url(https://images.unsplash.com/photo-1504855328839-2f4baf9e0fd7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1382&q=80);
+                }
+
+                .img2 {
+                    background-image: url(https://images.unsplash.com/photo-1525203135335-74d272fc8d9c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80);
+                }
+
+                .img3 {
+                    background-image: url(https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5d2452cace2ee90c9781c7a39c9a30cf&auto=format&fit=crop&w=1500&q=80);
+                }
+            }
+
+            .item {
+                float: left;
+                padding: 34px 40px;
+
+                @include iphone {
+                    float: right;
+                    padding: 0px 0px;
+                }
+
+                h4 {
+                    padding-bottom: 5px;
+                }
+
+                p {
+                    font-size: 16px;
+                }
+            }
+
+            ul {
+                padding-top: 30px;
+
+                @include iphone {
+                    padding-top: 18px;
+                    float: right;
+                }
+
+                li {
+                    float: left;
+                    width: 48px;
+                    margin-left: -1px;
+
+                    button {
+                        border: 1px solid $font-dark-green;
+                        background: #fff;
+                        color: $font-dark-green;
+                        width: 100%;
+                        height: 48px;
+                        font-size: 25px;
+                        outline: none;
+                        cursor: pointer;
+                        vertical-align: middle;
+
+                        &:hover {
+                            background: $light;
+                        }
+                    }
+
+                    input {
+                        height: 48px;
+                        width: 100%;
+                        vertical-align: middle;
+                        border: 1px solid $font-dark-green;
+                        text-align: center;
+                        color: $font-dark-green;
+                        font-size: 16px;
+                        outline: none;
+
+                    }
+                }
+            }
+
+            span {
+                font-weight: bold;
+                padding: 15px 40px 0;
+                display: inline-block;
+
+                @include iphone {
+                    border-top: 1px solid $font-light-green;
+                    padding: 8px 0 0 85%;
+                    margin-top: 20px;
+                }
+
+                @include iphone5 {
+                    padding: 8px 0 0 73%;
+                }
+            }
+
+            a {
+                color: $font-dark-green;
+
+                @include iphone {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .cart-total {
+        @include clearfix;
+        font-family: $font-family;
+        float: right;
+        color: #fff;
+        background: $font-dark-green;
+        width: 35.5%;
+
+        @include iphone {
+            width: 100%;
+            float: none;
+        }
+
+        h5 {
+            text-align: center;
+            line-height: 65px;
+            border-bottom: 1px solid #fff;
+            font-size: 24px;
+            font-weight: bold;
+
+        }
+    
+
+    
+        .total {
+            padding: 0 5%;
+
+            .subtotal {
+                padding: 17px 0 8px;
+                font-size: 16px;
+            }
+
+            .fee {
+                padding: 8px 0 17px;
+                font-size: 16px;
+            }
+
+            ul {
+                li {
+                    display: inline-block;
+                    width: 100%;
+
+                    .total-left {
+                        float: left;
+
+                    }
+
+                    .total-right {
+                        float: right;
+
+                    }
+                }
+            }
+
+            .bold {
+                font-weight: bold;
+                padding-bottom: 16px;
+            }
+        }
+
+        a {
+            border: none;
+            background: $btn-yellow;
+            width: 100%;
+            height: 65px;
+            font-size: 24px;
+            color: $font-dark-green;
+            font-weight: bold;
+            font-family: $font-family;
+            cursor: pointer;
+            display: block;
+            text-align: center;
+            line-height: 65px;
+
+            &:hover {
+                background: $btn-yellow-dark;
+            }
+        }
+    }
+}

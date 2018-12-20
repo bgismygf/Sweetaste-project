@@ -1,0 +1,344 @@
+@mixin clearfix {
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin pad {
+    @media(max-width: 768px) {
+        @content
+    }
+}
+
+@mixin iphone {
+    @media(max-width: 568px) {
+        @content
+    }
+}
+
+@mixin iphone5 {
+    @media(max-width: 320px) {
+        @content
+    }
+}
+
+@mixin ip-ip5 {
+    @media screen and (min-width: 321px) and (max-width: 567px) {
+        @content
+    }
+}
+
+$font-family:"Helvetica Neue",
+Helvetica,
+"segoe ui",
+"microsoft jhenghei",
+"microsoft mhei",
+stheititc,
+sans-serif;
+$font-dark-green:#3F5D45;
+$font-light-green:rgba(63, 93, 69, 0.5);
+$a-color:rgba(63, 93, 69, 0.91);
+$font-color-p:#8DA291;
+$light:#EAF0ED;
+$light-dark:#E6E8E7;
+
+.heart-solid {
+    font-weight: 900;
+}
+
+.porduct-banner {
+    background-image: url(https://images.unsplash.com/photo-1512484457149-266d165a4eca?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=786581a33fd6c9343735655439ce2e5a&auto=format&fit=crop&w=1380&q=80);
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    height: 496px;
+    position: relative;
+    margin-bottom: 60px;
+
+    @include pad {
+        margin-bottom: 0px;
+    }
+    @include iphone {
+        height: 277px;
+    }
+
+
+    img {
+        width: 89px;
+        height: 327px;
+        position: absolute;
+        top: 40px;
+        right: 40px;
+
+        @include iphone {
+            display: none;
+        }
+    }
+
+    .porduct-banner-img568 {
+        display: none;
+
+        @include iphone {
+            display: block;
+            width: 59px;
+            height: 218px;
+            position: absolute;
+            top: 30px;
+            right: 30px;
+        }
+    }
+}
+
+.porduct-type {
+    float: left;
+    width: 30%;
+    @include clearfix;
+
+    @include pad {
+        float: none;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    span {
+        display: block;
+        color: #fff;
+        padding: 16px 64px;
+        font-size: 24px;
+        font-family: $font-family;
+        text-align: center;
+        font-weight: bold;
+        background: $font-dark-green;
+
+    }
+
+    ul {
+        li {
+            float: left;
+            border: 1px solid $light;
+            margin-top: -1px;
+
+            @include pad {
+                float: none;
+            }
+
+            a {
+                color: $font-dark-green;
+                font-size: 24px;
+                font-family: $font-family;
+                font-weight: bold;
+                display: block;
+                padding: 16px 83px;
+
+                @include pad {
+                    text-align: center;
+                    padding: 16px 0;
+                }
+
+                &:hover,
+                &:focus {
+                    background: $light;
+                }
+            }
+        }
+    }
+}
+
+.porduct-menu {
+    float: right;
+    font-family: $font-family;
+    margin-bottom: 10px;
+    @include clearfix;
+    width: 70%;
+
+    @include pad {
+        width: 100%;
+        float: none;
+    }
+
+    @include iphone {
+        margin-bottom: 10px;
+    }
+
+    ul {
+        @include pad {
+            margin-right: 3%;
+        }
+
+        @include iphone {
+            margin-right: 0%;
+        }
+
+        li {
+            width: 50%;
+            padding: 0 0 20px 3%;
+            float: left;
+
+            @include iphone {
+                width: 100%;
+                float: none;
+                margin: 0;
+                padding: 0 4% 30px 4%;
+            }
+
+            span {
+                text-align: center;
+                color: $font-dark-green;
+                border-left: 1px solid $light;
+                padding: 14px 0;
+                display: inline-block;
+                width: 58%;
+            }
+
+            .price {
+                border-right: 1px solid $light;
+                width: 42%;
+                font-weight: bold;
+            }
+
+            .product-menu-img1,
+            .product-menu-img2,
+            .product-menu-img3,
+            .product-menu-img4,
+            .product-menu-img5,
+            .product-menu-img6,
+                {
+                max-width: 100%;
+                height: 315px;
+                background-position: center center;
+                background-size: cover;
+                position: relative;
+
+                a {
+                    color: $font-dark-green;
+                    border: 0;
+                    background: none;
+                    font-size: 20px;
+                    outline: none;
+                    position: absolute;
+                    top: 18px;
+                    right: 10px;
+                }
+
+                &:after {
+                    text-align: center;
+                    content: "本日精選";
+                    background: $font-dark-green;
+                    writing-mode: vertical-rl;
+                    color: #fff;
+                    display: block;
+                    padding: 15px 3% 15px 2%;
+                    font-size: 16px;
+                    letter-spacing: 3px;
+                    position: absolute;
+                    left: 10px;
+
+                }
+
+                @include iphone {
+                    max-width: 100%;
+                }
+            }
+
+            .product-menu-img1 {
+                background-image: url(https://images.unsplash.com/photo-1490474504059-bf2db5ab2348?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0cad6d3de8adbdf6298d4ca5d094f8c6&auto=format&fit=crop&w=1500&q=80);
+            }
+
+            .product-menu-img2 {
+                background-image: url(https://images.unsplash.com/photo-1514517220017-8ce97a34a7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80);
+            }
+
+            .product-menu-img3 {
+                background-image: url(https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5d2452cace2ee90c9781c7a39c9a30cf&auto=format&fit=crop&w=1500&q=80);
+            }
+
+            .product-menu-img4 {
+                background-image: url(https://images.unsplash.com/photo-1474045326708-cdc78c2487cb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6b25bcab557acc2d93446512e117f1be&auto=format&fit=crop&w=1400&q=80);
+            }
+
+            .product-menu-img5 {
+                background-image: url(https://images.unsplash.com/photo-1525203135335-74d272fc8d9c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80);
+            }
+
+            .product-menu-img6 {
+                background-image: url(https://images.unsplash.com/photo-1499635842761-4f1f28fafcff?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3d6d0e5a1d7e9cd7a3cc81626125a8ed&auto=format&fit=crop&w=1400&q=80);
+            }
+
+            button {
+
+                font-weight: bold;
+                font-size: 24px;
+                padding: 16px 0;
+                width: 100%;
+                color: $font-dark-green;
+                text-align: center;
+                background: $light;
+                display: inline-block;
+                border: 0;
+                cursor: pointer;
+                font-family: $font-family;
+
+                &:hover {
+                    background: $light-dark;
+                }
+            }
+        }
+    }
+}
+
+.pagination {
+    margin-bottom: 60px;
+    height: 60px;
+    clear: both;
+
+    @include pad {
+        margin-bottom: 45px;
+    }
+
+    ul {
+        float: right;
+        width: 32.7%;
+
+        @include pad {
+            float: none;
+            margin: 0 auto;
+            width: 42.7%;
+
+            @include iphone {
+                width: 52.7%;
+            }
+
+            @include iphone {
+                width: 82.7%;
+            }
+        }
+
+        li {
+            float: left;
+            width: 20%;
+            text-align: center;
+
+            a {
+                font-family: $font-family;
+                display: block;
+                padding: 23px 0px;
+                border: 1px solid $font-light-green;
+                margin-left: -1px;
+                color: $font-dark-green;
+
+                &:hover,
+                &:focus {
+                    background: $font-dark-green;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

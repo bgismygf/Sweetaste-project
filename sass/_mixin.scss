@@ -1,0 +1,39 @@
+@mixin logo{
+	background-image:url();
+	display:block;
+	width: px;
+	height: px;
+	text-indent:101%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+@mixin clearfix{
+	&:before,
+	&:after{
+	content: "";
+	display: table;
+	}
+	&:after{
+		clear: both;
+	}
+}
+@mixin pad{
+	@midia(max-width: 768px){
+		@content
+	}
+}
+@mixin iphone{
+	@midia(max-width: 568px){
+		@content
+	}
+}
+@mixin iphone5{
+	@midia(max-width: 320px){
+		@content
+	}
+}
+@mixin ip-ip5{
+	@media screen and (min-width: 321px) and (max-width: 567px){
+		@content
+	}
+}

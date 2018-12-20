@@ -1,0 +1,515 @@
+@mixin clearfix {
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin pad {
+    @media(max-width: 768px) {
+        @content
+    }
+}
+
+@mixin iphone {
+    @media(max-width: 568px) {
+        @content
+    }
+}
+
+@mixin iphone5 {
+    @media(max-width: 320px) {
+        @content
+    }
+}
+
+@mixin ip-ip5 {
+    @media screen and (min-width: 321px) and (max-width: 567px) {
+        @content
+    }
+}
+
+$font-family:"Helvetica Neue",
+Helvetica,
+"segoe ui",
+"microsoft jhenghei",
+"microsoft mhei",
+stheititc,
+sans-serif;
+$font-dark-green:#3F5D45;
+$font-light-green:rgba(63, 93, 69, 0.5);
+$a-color:rgba(63, 93, 69, 0.91);
+$font-color-p:#8DA291;
+$light:#EAF0ED;
+$light-dark:#E6E8E7;
+
+.heart-solid {
+    font-weight: 900;
+}
+
+.index-banner {
+    background-image: url(https://images.unsplash.com/photo-1473256599800-b48c7c88cd7e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ae0d68ab0db4ee79bdce92722b31112b&auto=format&fit=crop&w=1525&q=80);
+    height: 469px;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    margin-bottom: 227px;
+
+    @include iphone {
+        margin-bottom: 177px;
+    }
+
+    ul {
+        width: 76%;
+        margin: 0 auto;
+        padding-top: 370px;
+
+        @include iphone {
+            width: 100%;
+        }
+
+        li {
+            float: left;
+            width: 33.33%;
+            height: 250px;
+            text-align: center;
+
+
+            a {
+                letter-spacing: 3px;
+                font-size: 24px;
+                font-family: $font-family;
+                width: 100%;
+                height: 250px;
+                padding-left: 45%;
+                writing-mode: vertical-lr;
+                color: #fff;
+                display: block;
+                background: $a-color;
+                transition: background-color .5s;
+
+                @include iphone5 {
+                    padding-left: 38%;
+                }
+
+                @include ip-ip5 {
+                    padding-left: 42%;
+                }
+
+                &:hover,
+                &:focus {
+                    color: $a-color;
+                    font-weight: bold;
+                    background: rgba(255, 225, 128, 0.8);
+
+
+                }
+            }
+
+        }
+
+        .banner-sm1 {
+            background-image: url(https://images.unsplash.com/photo-1490914327627-9fe8d52f4d90?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=73ed228f25bdefd2291c242f6d390fca&auto=format&fit=crop&w=1534&q=80);
+            background-position: center center;
+            background-size: cover;
+        }
+
+        .banner-sm2 {
+            background-image: url(https://images.unsplash.com/photo-1504114133367-631ecd3db3ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1572&q=80);
+            background-position: center center;
+            background-size: cover;
+        }
+
+        .banner-sm3 {
+            background-image: url(https://images.unsplash.com/photo-1499638472904-ea5c6178a300?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c27da96f7150c96a92ba8a53c8644761&auto=format&fit=crop&w=1400&q=80);
+            background-position: center center;
+            background-size: cover;
+        }
+    }
+}
+
+.section-top {
+    position: relative;
+    margin-bottom: 60px;
+
+    @include iphone {
+        margin-bottom: 30px;
+    }
+
+    .section-bigimg {
+        background-image: url(https://images.unsplash.com/photo-1519730722595-a5ff788dea4d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2712a33fe9b13532f0682ac4e1e749b8&auto=format&fit=crop&w=1534&q=80);
+        max-width: 460px;
+        height: 460px;
+        background-position: center center;
+        background-size: cover;
+        margin-left: 40px;
+
+        @include pad {
+            margin-right: 410px;
+        }
+
+        @include iphone {
+            max-width: 100%;
+            height: 250px;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+    }
+
+    .light-bgbox {
+        background: $light;
+        width: 100%;
+        height: 420px;
+        position: absolute;
+        z-index: -1;
+        bottom: 20px;
+
+        @include iphone {
+            bottom: 0px;
+
+        }
+    }
+
+    .section-top-p1 {
+        position: absolute;
+        top: 90px;
+        right: 211px;
+        writing-mode: vertical-rl;
+        font-size: 16px;
+        color: $font-color-p;
+        line-height: 40px;
+
+        @include pad {
+            right: 149px;
+        }
+
+        @include iphone {
+            position: relative;
+            writing-mode: horizontal-tb;
+            top: 0px;
+            right: 0px;
+            padding: 30px 3.5%;
+
+            br {
+                display: none;
+            }
+        }
+
+        @include iphone5 {
+            padding: 30px 5%;
+        }
+
+    }
+
+    .section-top-p2 {
+        position: absolute;
+        top: 90px;
+        right: 411px;
+        writing-mode: vertical-rl;
+        font-size: 16px;
+        color: $font-color-p;
+        line-height: 40px;
+
+        @include pad {
+            right: 309px;
+        }
+
+        @include iphone {
+            position: relative;
+            writing-mode: horizontal-tb;
+            top: 0px;
+            right: 0px;
+            padding: 0px 3.5% 30px;
+
+            br {
+                display: none;
+            }
+        }
+
+        @include iphone5 {
+            padding: 0px 5% 30px;
+        }
+    }
+
+    .section-img1 {
+        position: absolute;
+        width: 88px;
+        height: 307px;
+        top: 0;
+        right: 40px;
+
+        @include iphone {
+            display: none;
+        }
+    }
+
+    .section-img2 {
+        display: none;
+
+        @include iphone {
+            display: block;
+            max-width: 189px;
+            height: 58px;
+            margin: 30px auto;
+        }
+    }
+
+}
+
+.section-bottom {
+    position: relative;
+    margin-bottom: 60px;
+
+    .section-bigimg {
+        background-image: url(https://images.unsplash.com/photo-1501432781167-c0ccfd492297?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1539&q=80);
+        max-width: 460px;
+        height: 460px;
+        background-position: center center;
+        background-size: cover;
+        margin-left: 524px;
+        margin-right: 40px;
+
+        @include pad {
+            margin-left: 410px;
+        }
+
+        @include iphone {
+            max-width: 100%;
+            height: 250px;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+    }
+
+    .light-bgbox {
+        background: $light;
+        width: 100%;
+        height: 420px;
+        position: absolute;
+        z-index: -1;
+        bottom: 20px;
+
+        @include iphone {
+            bottom: 0px;
+
+        }
+    }
+
+    .section-bottom-p1 {
+        position: absolute;
+        top: 90px;
+        left: 175px;
+        writing-mode: vertical-rl;
+        font-size: 16px;
+        color: $font-color-p;
+        line-height: 40px;
+
+        @include pad {
+            left: 119px;
+        }
+
+        @include iphone {
+            position: relative;
+            writing-mode: horizontal-tb;
+            top: 0px;
+            left: 0px;
+            padding: 30px 3.5%;
+
+            br {
+                display: none;
+            }
+        }
+
+        @include iphone5 {
+            padding: 30px 5%;
+        }
+
+    }
+
+    .section-bottom-p2 {
+        position: absolute;
+        top: 90px;
+        left: 55px;
+        writing-mode: vertical-rl;
+        font-size: 16px;
+        color: $font-color-p;
+        line-height: 40px;
+
+        @include pad {
+            left: 40px;
+        }
+
+        @include iphone {
+            position: relative;
+            writing-mode: horizontal-tb;
+            top: 0px;
+            left: 0px;
+            padding: 0px 3.5% 30px;
+
+            br {
+                display: none;
+            }
+        }
+
+        @include iphone5 {
+            padding: 0px 5% 30px;
+        }
+    }
+
+    .section-img1 {
+        position: absolute;
+        width: 88px;
+        height: 307px;
+        top: 0;
+        left: 397px;
+
+        @include pad {
+            left: 292px;
+        }
+
+        @include iphone {
+            display: none;
+        }
+    }
+
+    .section-img2 {
+        display: none;
+
+        @include iphone {
+            display: block;
+            max-width: 189px;
+            height: 58px;
+            margin: 30px auto;
+        }
+    }
+
+}
+
+.index-product {
+    font-family: $font-family;
+    margin-bottom: 60px;
+    @include clearfix;
+    @include iphone {
+                        margin-bottom: 30px;
+                    }
+
+    .product-img1 {
+        width: 89px;
+        height: 327px;
+        display: block;
+        margin: 0 auto 80px;
+    }
+
+    .product-img2 {
+        display: none;
+    }
+
+    ul {
+        padding: 0 3.25%;
+
+        li {
+            width: 31.33333%;
+            margin: 0 1%;
+            float: left;
+
+            @include iphone {
+                width: 100%;
+                float: none;
+                padding-bottom: 30px;
+                margin: 0;
+                padding: 0 4%;
+            }
+
+            span {
+                text-align: center;
+                color: $font-dark-green;
+                border-left: 1px solid $light;
+                padding: 14px 0;
+                display: inline-block;
+                width: 58%;
+            }
+
+            .price {
+                border-right: 1px solid $light;
+                width: 42%;
+                font-weight: bold;
+            }
+
+            .product-img3,
+            .product-img4,
+            .product-img5 {
+                max-width: 300px;
+                height: 315px;
+                background-position: center center;
+                background-size: cover;
+                position: relative;
+
+                a {
+                    color: $font-dark-green;
+                    border: 0;
+                    background: none;
+                    font-size: 20px;
+                    outline: none;
+                    position: absolute;
+                    top: 18px;
+                    right: 10px;
+                }
+
+                &:after {
+                    text-align: center;
+                    content: "本日精選";
+                    background: $font-dark-green;
+                    writing-mode: vertical-rl;
+                    color: #fff;
+                    display: block;
+                    padding: 15px 3% 15px 2%;
+                    font-size: 16px;
+                    letter-spacing: 3px;
+                    position: absolute;
+                    left: 10px;
+
+                }
+                @include iphone {
+                        max-width: 100%;
+                    }
+            }
+
+            .product-img3 {
+                background-image: url(https://images.unsplash.com/photo-1514517220017-8ce97a34a7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80);
+            }
+
+            .product-img4 {
+                background-image: url(https://images.unsplash.com/photo-1525203135335-74d272fc8d9c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80);
+            }
+
+            .product-img5 {
+                background-image: url(https://images.unsplash.com/photo-1504473089979-b1c4993a9653?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9db69b72e1f7d1b4e5c81cee531108ff&auto=format&fit=crop&w=1534&q=80);
+            }
+
+            button {
+                border: 0;
+                font-weight: bold;
+                font-size: 24px;
+                padding: 16px 0;
+                width: 100%;
+                color: $font-dark-green;
+                text-align: center;
+                background: $light;
+                display: inline-block;
+                font-family: $font-family;
+                cursor: pointer;
+                &:hover {
+                    background: $light-dark;
+                }
+            }
+        }
+    }
+}

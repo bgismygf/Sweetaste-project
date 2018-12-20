@@ -1,0 +1,260 @@
+@mixin clearfix {
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin pad {
+    @media(max-width: 768px) {
+        @content
+    }
+}
+
+@mixin iphone {
+    @media(max-width: 568px) {
+        @content
+    }
+}
+
+@mixin iphone5 {
+    @media(max-width: 320px) {
+        @content
+    }
+}
+
+@mixin ip-ip5 {
+    @media screen and (min-width: 321px) and (max-width: 567px) {
+        @content
+    }
+}
+
+$font-family:"Helvetica Neue",
+Helvetica,
+"segoe ui",
+"microsoft jhenghei",
+"microsoft mhei",
+stheititc,
+sans-serif;
+$font-dark-green:#3F5D45;
+$font-light-green:rgba(63, 93, 69, 0.5);
+$a-color:rgba(63, 93, 69, 0.91);
+$font-color-p:#8DA291;
+$light:#EAF0ED;
+$light-dark:#E6E8E7;
+$btn-yellow:#FFE180;
+$btn-yellow-dark:#FFE150;
+
+.login-all {
+    width: 76.2%;
+    margin: 60px auto;
+    @include clearfix;
+
+    @include pad {
+        width: 100%;
+        margin: 0px auto;
+    }
+
+    .login {
+        max-width: 390px;
+        font-family: $font-family;
+        background: $font-dark-green;
+        float: left;
+
+        @include pad {
+            float: none;
+            max-width: 100%;
+        }
+
+        h2 {
+            color: $light;
+            font-weight: bold;
+            font-size: 36px;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .login-btn768 {
+            display: none;
+            background: $light;
+            text-align: center;
+            padding: 31px 0;
+            margin-bottom: 30px;
+
+            @include pad {
+                display: block;
+                height: 116px;
+            }
+
+            button {
+                width: 28.5%;
+                height: 56px;
+                background: #fff;
+                border: 1px solid $light;
+                margin-left: -4px;
+                padding: 0 0px;
+                &:hover,
+                &:active {
+                background: $light;
+            }
+            }
+
+            .aside-img1 {
+                height: 20px;
+                margin: 16.5px 0 15.5px;
+            }
+
+            .aside-img2 {
+                height: 31px;
+                margin: 11.5px 0 8.5px;
+            }
+
+            .aside-img3 {
+                height: 22px;
+                margin: 15.5px 0 12.5px;
+            }
+        }
+
+        .center-box {
+            width: 86%;
+            margin: 0 auto;
+
+
+            .usericon {
+                position: relative;
+
+                &:before {
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    content: "\f007";
+                    font-size: 18px;
+                    position: absolute;
+                    left: 20px;
+                    top: 57%;
+                    transform: translateY(-50%);
+                    color: $font-dark-green;
+                }
+            }
+
+            .passwordicon {
+                position: relative;
+
+                &:before {
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    content: "\f09c";
+                    font-size: 18px;
+                    position: absolute;
+                    left: 20px;
+                    top: 57%;
+                    transform: translateY(-50%);
+                    color: $font-dark-green;
+                }
+            }
+
+            label {
+
+                input {
+                    margin-bottom: 16px;
+                    width: 100%;
+                    height: 56px;
+                    background: $light;
+                    text-indent: 50px;
+                    outline: none;
+                    border: none;
+                    font-size: 16px;
+                }
+            }
+
+            .remember-box {
+                width: 16px;
+                height: 16px;
+                margin-bottom: 25px;
+            }
+
+            span {
+                color: #fff;
+                font-size: 16px;
+                display: inline-block;
+                margin-left: 3px;
+            }
+        }
+
+        button {
+            width: 100%;
+            height: 65px;
+            outline: 0;
+            background: $btn-yellow;
+            color: $font-dark-green;
+            border: 0;
+            cursor: pointer;
+            font-size: 24px;
+            font-family: $font-family;
+            font-weight: bold;
+
+            &:hover {
+                background: $btn-yellow-dark;
+            }
+        }
+    }
+
+    .aside {
+        max-width: 390px;
+        margin-top: 12.5px;
+        background: $light;
+        float: left;
+        text-align: center;
+        padding-bottom: 40px;
+
+        @include pad {
+            display: none;
+        }
+
+        h3 {
+            font-size: 24px;
+            font-family: $font-family;
+            color: $font-light-green;
+            padding: 40px 0 20px;
+        }
+
+        
+            button {
+                background: #fff;
+                border: 0;
+                cursor: pointer;
+                margin-top: 16px;
+                outline: none;
+
+                &:hover {
+                    background: $light-dark;
+                }
+
+                img {
+                    width: 100%;
+                }
+
+                .aside-img1 {
+                    height: 20px;
+                    margin: 16.5px 0 15.5px;
+                }
+
+                .aside-img2 {
+                    height: 31px;
+                    margin: 11.5px 0 8.5px;
+                }
+
+                .aside-img3 {
+                    height: 22px;
+                    margin: 15.5px 0 12.5px;
+                }
+            }
+        
+
+    }
+}
